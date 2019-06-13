@@ -1,7 +1,17 @@
 # PyRandomString
+### Version : 0.0.2
+
+Author : Lakhya Jyoti Nath (ljnath)<br>
+Date : June 2019<br>
+Email : ljnath@ljnath.com<br>
+Website : https://www.ljnath.com
 
 ## Introduction
-PyRandomString is a python library to generate a list of string. 
+PyRandomString is a python library to generate N random list of string of M length
+It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
+
+## Version
+PyRandomString is a python library to generate N random list of string of M length
 It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
 
 
@@ -26,7 +36,7 @@ It is parameterized to generate strings of random number and length which is ret
 import PyRandomString
 
 random_string = PyRandomString.RandomString()
-string_collection = random_string.get_strings(string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE, random_length=False, max_length=10, string_count=1000)
+string_collection = random_string.get_strings(string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE, random_length=False, max_length=10, string_count=50)
 
 for current_string in string_collection:
     print(current_string)

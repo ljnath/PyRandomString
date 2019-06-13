@@ -1,6 +1,6 @@
 """
-PyRandomString is a python library to generate a list of string. 
-
+PyRandomString is a python library to generate N random list of string of M length
+Version: 0.0.2
 Author: Lakhya Jyoti Nath (ljnath)
 Email:  ljnath@ljnath.com
 Website: https://www.ljnath.com
