@@ -10,12 +10,6 @@ Website : https://www.ljnath.com
 PyRandomString is a python library to generate N random list of string of M length
 It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
 
-## Version
-PyRandomString is a python library to generate N random list of string of M length
-It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
-
-
-
 ## Parameters
 * **string_count**      : *Integer - Total number of strings to be generated (default is 10)*
 * **max_length**      : *Integer - Maximum length of each generated string (default is 10)*
