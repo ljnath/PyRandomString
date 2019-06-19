@@ -40,12 +40,12 @@ class TestPyRandomString(unittest.TestCase):
     def testForAlphaNumericInUpperCase(self):
         random_strings = self.__random_string_generator.get_strings(string_count=5, max_length=16, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_UPPERCASE)
         for string in random_strings:
-            assert re.fullmatch(r'[a-zA-Z0-9]{16}', string)
+            assert re.fullmatch(r'[A-Z]{16}', string)
 
     def testForAlphaNumericInLowerCase(self):
         random_strings = self.__random_string_generator.get_strings(string_count=5, max_length=18, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_LOWERCASE)
         for string in random_strings:
-            assert re.fullmatch(r'[a-zA-Z0-9]{18}', string)
+            assert re.fullmatch(r'[a-z]{18}', string)
 
     def testForAlphaNumericInMixedCase(self):
         random_strings = self.__random_string_generator.get_strings(string_count=5, max_length=20, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
