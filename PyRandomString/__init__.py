@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 PyRandomString is a python library to generate N random list of string of M length
-Version: 0.0.3
+Version: 0.0.4
 Author: Lakhya Jyoti Nath (ljnath)
 Email:  ljnath@ljnath.com
 Website: https://www.ljnath.com
@@ -30,7 +30,7 @@ Website: https://www.ljnath.com
 
 import sys
 if sys.version_info[0] < 3:
-    raise Exception("Python version lower then 3 is not supported")
+    raise Exception("Python version lower than 3 is not supported")
 import re
 import random
 from enum import Enum
@@ -57,10 +57,16 @@ class StringType(Enum):
     ALPHA_NUMERIC_ALL_CASE_WITH_SYMBOLS = ALPHABET_ALL_CASE + NUMERIC + SYMBOLS
 
 class UnsupportedTypeException(Exception):
+    """
+    Exception class for UnsupportedTypeException. It is supposed to be raised if parameter is not of expected type
+    """
     def __init__(self, parameter_name, message = None):
         print('Unsupported type exception for {}. {}'.format(parameter_name, message if message else ''))
 
 class InvalidInputSymbolsException(Exception):
+    """
+    Exception class for InvalidInputSymbolsException. It is supposed to be when the custom symbol is not a subset of pre-defined symbols
+    """
     def __init__(self, input_symbols):
         print('Input symbols "{}" are invalid. Input symbols should be a subset of available symbols {}'.format(input_symbols, StringType.SYMBOLS.value))
 
@@ -111,6 +117,8 @@ class RandomString(object):
             yield(str(current_word))
 
     def __validate_input(self, count, max_length, random_length, string_type, symbols):
+        """ Validation method to chedk the type for input paramters and the symbols
+        """
         if not isinstance(count, int):
             raise UnsupportedTypeException(parameter_name='count', message='count should be of integer type instead of current {} type'.format(type(count)))
 

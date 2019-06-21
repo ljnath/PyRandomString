@@ -1,5 +1,8 @@
 # PyRandomString Changelog
 
+#### Version 0.0.4
+* Fixed typo and example in readme file
+
 #### Version 0.0.3
 * Added support to get single random string using get_string()
 * Added support for pre-defined (" !#$%&'()*+,-./:;<=>?@[\]^_`{|}~) and custom symbols
