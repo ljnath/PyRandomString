@@ -1,10 +1,36 @@
 """
+MIT License
+
+Copyright (c) 2019 Lakhya Jyoti Nath (ljnath)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 PyRandomString is a python library to generate N random list of string of M length
-Version: 0.0.2
+Version: 0.0.3
 Author: Lakhya Jyoti Nath (ljnath)
 Email:  ljnath@ljnath.com
 Website: https://www.ljnath.com
 """
+
+import sys
+if sys.version_info[0] < 3:
+    raise Exception("Python version lower then 3 is not supported")
 
 import random
 from enum import Enum
@@ -15,12 +41,20 @@ class StringType(Enum):
     """
     __ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
     NUMERIC = '0123456789'
+    SYMBOLS = '" !#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
     ALPHABET_LOWERCASE = __ALPHABET.lower()
+    ALPHABET_LOWERCASE_WITH_SYMBOLS = __ALPHABET.lower() + SYMBOLS
     ALPHABET_UPPERCASE = __ALPHABET.upper()
+    ALPHABET_UPPERCASE_WITH_SYMBOLS = __ALPHABET.upper() + SYMBOLS
     ALPHABET_ALL_CASE = ALPHABET_LOWERCASE + ALPHABET_UPPERCASE
+    ALPHABET_ALL_CASE_WITH_SYMBOLS = ALPHABET_LOWERCASE + ALPHABET_UPPERCASE + SYMBOLS
     ALPHA_NUMERIC_LOWERCASE = ALPHABET_LOWERCASE + NUMERIC
+    ALPHA_NUMERIC_LOWERCASE_WITH_SYMBOLS = ALPHABET_LOWERCASE + NUMERIC + SYMBOLS
     ALPHA_NUMERIC_UPPERCASE = ALPHABET_UPPERCASE + NUMERIC
+    ALPHA_NUMERIC_UPPERCASE_WITH_SYMBOLS = ALPHABET_UPPERCASE + NUMERIC + SYMBOLS
     ALPHA_NUMERIC_ALL_CASE = ALPHABET_ALL_CASE + NUMERIC
+    ALPHA_NUMERIC_ALL_CASE_WITH_SYMBOLS = ALPHABET_ALL_CASE + NUMERIC + SYMBOLS
 
 
 class RandomString(object):
@@ -30,28 +64,41 @@ class RandomString(object):
     def __init__(self):
         pass
  
-    def get_strings(self, string_count:int = 10, max_length:int = 10, random_length:bool = False, string_type:StringType = StringType.ALPHA_NUMERIC_ALL_CASE):
-        """ Method to generate random string based on input parameters
-            :param string_count : string_count as integer. Total number of strings to be generated 
+    def get_string(self, max_length=10, random_length=False, string_type=StringType.ALPHA_NUMERIC_ALL_CASE, symbols=None):
+        """ Method to generate a random string based on input parameters
             :param max_length : max_length as integer. Maximum length of each generated string
             :param random_length : random_length as boolean - if the length of each word should be random or not. Incase of random length the maximum value is 'max_length'
             :param string_type : string_type as StringType. Type of characters to be used for generating random strings
+            :param symbols : symbols as string. Symbols which are to be used during string generation. Applicable only when string_type is set to SYMBOLS or WITH_SYMBOLS
+            :return random_string : random_string as a string
         """
-        string_collection = []
-        if string_count > 0 and max_length > 0:
-            string_collection =  list(self.__get_strings(string_count, max_length, random_length, string_type))
-        return string_collection
+        random_string = self.get_strings(count=1, max_length=max_length, random_length=random_length, string_type=string_type, symbols=symbols)[0]
+        return random_string
+
+    def get_strings(self, count=10, max_length=10, random_length=False, string_type=StringType.ALPHA_NUMERIC_ALL_CASE, symbols=None):
+        """ Method to generate a list of random string based on input parameters
+            :param count : count as integer. Total number of strings to be generated 
+            :param max_length : max_length as integer. Maximum length of each generated string
+            :param random_length : random_length as boolean - if the length of each word should be random or not. Incase of random length the maximum value is 'max_length'
+            :param string_type : string_type as StringType. Type of characters to be used for generating random strings
+            :param symbols : symbols as string. Symbols which are to be used during string generation. Applicable only when string_type is set to SYMBOLS or WITH_SYMBOLS
+            :return list_of_strings : list_of_strings as a list. This is a list containing random strings
+        """
+        list_of_strings = []
+        if count > 0 and max_length > 0:
+            list_of_strings =  list(self.__get_strings(count, max_length, random_length, string_type.value if not symbols else string_type.value.replace(StringType.SYMBOLS.value, symbols)))
+        return list_of_strings
  
-    def __get_strings(self, string_count, max_length, random_length, input_characters):
+    def __get_strings(self, count, max_length, random_length, input_characters):
         """ Private method for actual generation of random string
         """
-        for _ in range(string_count):
+        for _ in range(count):
             current_word = ''
             if not random_length:
                 for _ in range(max_length):
-                    current_word += random.SystemRandom().choice(input_characters.value)
+                    current_word += random.SystemRandom().choice(input_characters)
             else:
                 for _ in range(random.randint(1, max_length)):
-                    current_word += random.SystemRandom().choice(input_characters.value)
+                    current_word += random.SystemRandom().choice(input_characters)
             yield(str(current_word))
  

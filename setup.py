@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name = "pyrandomstring",
-    version = "0.0.2",
+    version = "0.0.3",
     author = "Lakhya Jyoti Nath (ljnath)",
     author_email = "ljnath@ljnath.com",
     description = "PyRandomString is a python library to generate N random list of string of M length. Ofcourse you can configure N and M",
