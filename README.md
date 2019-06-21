@@ -11,7 +11,7 @@ PyRandomString is a python library to generate N random list of string of M leng
 It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
 
 ## Parameters
-* **count** : *Integer - Total number of strings to be generated (default is 10)*
+* **count** : *Integer - Total number of strings to be generated (default is 10). Not applicable for get_string() method*
 * **max_length** : *Integer - Maximum length of each generated string (default is 10)*
 * **random_length** : *Boolean choice - if the length of each word should be random or not. Incase of random length the maximum value is 'max_length'*
 * **symbols** : *String - Custom symbols which you want to use during random string generation. It should be a subset of the supported symbols and it is applicable only when the 'string_type' is of type 'SYMBOLS' or '_WITH_SYMBOLS'*
