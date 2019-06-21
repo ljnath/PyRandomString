@@ -22,6 +22,10 @@ class TestPyRandomString(unittest.TestCase):
         random_string = self.__random_string_generator.get_string(max_length=6, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
         assert random_string and len(random_string) == 6
 
+    def testForSingleStringWithNoMaxLength(self):
+        random_string = self.__random_string_generator.get_string(max_length=0, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
+        assert not random_string
+
     def testStringCount(self):
         random_strings = self.__random_string_generator.get_strings(count=5, max_length=6, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
         assert len(random_strings) == 5
@@ -65,6 +69,22 @@ class TestPyRandomString(unittest.TestCase):
         random_strings = self.__random_string_generator.get_strings(count=5, max_length=24, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE_WITH_SYMBOLS, symbols='*&^%$#@!+-=')
         for string in random_strings:
             assert re.fullmatch(r'[a-zA-Z0-9*&^%$#@!+-=]{24}', string)
+
+    def testForUnsupportedTypeException(self):
+        with self.assertRaises(PyRandomString.UnsupportedTypeException):
+            self.__random_string_generator.get_strings(count = '2')
+        with self.assertRaises(PyRandomString.UnsupportedTypeException):
+            self.__random_string_generator.get_string(max_length = 'bad-input')
+        with self.assertRaises(PyRandomString.UnsupportedTypeException):
+            self.__random_string_generator.get_strings(random_length = 12345)
+        with self.assertRaises(PyRandomString.UnsupportedTypeException):
+            self.__random_string_generator.get_strings(string_type = 36.69)
+        with self.assertRaises(PyRandomString.UnsupportedTypeException):
+            self.__random_string_generator.get_strings(symbols = 321456)
+
+    def testForInvalidInputSymbolsException(self):
+        with self.assertRaises(PyRandomString.InvalidInputSymbolsException):
+            self.__random_string_generator.get_strings(symbols='bad')
 
 if __name__ == '__main__':
     unittest.main()

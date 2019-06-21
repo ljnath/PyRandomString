@@ -31,7 +31,7 @@ Website: https://www.ljnath.com
 import sys
 if sys.version_info[0] < 3:
     raise Exception("Python version lower then 3 is not supported")
-
+import re
 import random
 from enum import Enum
 
@@ -56,6 +56,13 @@ class StringType(Enum):
     ALPHA_NUMERIC_ALL_CASE = ALPHABET_ALL_CASE + NUMERIC
     ALPHA_NUMERIC_ALL_CASE_WITH_SYMBOLS = ALPHABET_ALL_CASE + NUMERIC + SYMBOLS
 
+class UnsupportedTypeException(Exception):
+    def __init__(self, parameter_name, message = None):
+        print('Unsupported type exception for {}. {}'.format(parameter_name, message if message else ''))
+
+class InvalidInputSymbolsException(Exception):
+    def __init__(self, input_symbols):
+        print('Input symbols "{}" are invalid. Input symbols should be a subset of available symbols {}'.format(input_symbols, StringType.SYMBOLS.value))
 
 class RandomString(object):
     """
@@ -72,8 +79,8 @@ class RandomString(object):
             :param symbols : symbols as string. Symbols which are to be used during string generation. Applicable only when string_type is set to SYMBOLS or WITH_SYMBOLS
             :return random_string : random_string as a string
         """
-        random_string = self.get_strings(count=1, max_length=max_length, random_length=random_length, string_type=string_type, symbols=symbols)[0]
-        return random_string
+        self.__validate_input(1, max_length, random_length, string_type, symbols)
+        return self.get_strings(count=1, max_length=max_length, random_length=random_length, string_type=string_type, symbols=symbols)[0] if max_length > 0 else ''
 
     def get_strings(self, count=10, max_length=10, random_length=False, string_type=StringType.ALPHA_NUMERIC_ALL_CASE, symbols=None):
         """ Method to generate a list of random string based on input parameters
@@ -84,6 +91,7 @@ class RandomString(object):
             :param symbols : symbols as string. Symbols which are to be used during string generation. Applicable only when string_type is set to SYMBOLS or WITH_SYMBOLS
             :return list_of_strings : list_of_strings as a list. This is a list containing random strings
         """
+        self.__validate_input(count, max_length, random_length, string_type, symbols)
         list_of_strings = []
         if count > 0 and max_length > 0:
             list_of_strings =  list(self.__get_strings(count, max_length, random_length, string_type.value if not symbols else string_type.value.replace(StringType.SYMBOLS.value, symbols)))
@@ -101,4 +109,21 @@ class RandomString(object):
                 for _ in range(random.randint(1, max_length)):
                     current_word += random.SystemRandom().choice(input_characters)
             yield(str(current_word))
- 
+
+    def __validate_input(self, count, max_length, random_length, string_type, symbols):
+        if not isinstance(count, int):
+            raise UnsupportedTypeException(parameter_name='count', message='count should be of integer type instead of current {} type'.format(type(count)))
+
+        if not isinstance(max_length, int):
+            raise UnsupportedTypeException(parameter_name='max_length', message='max_length should be of integer type instead of current {} type'.format(type(max_length)))
+
+        if not isinstance(random_length, bool):
+            raise UnsupportedTypeException(parameter_name='random_length', message='random_length should be of boolean type instead of current {} type'.format(type(random_length)))
+
+        if not isinstance(string_type, StringType):
+            raise UnsupportedTypeException(parameter_name='string_type', message='string_type should be of StringType type instead of current {} type'.format(type(string_type)))
+
+        if symbols and not isinstance(symbols, str):
+            raise UnsupportedTypeException(parameter_name='symbols', message='symbols should be either None or of string type instead of current {} type'.format(type(symbols)))
+        elif symbols and not re.match(r'[{}]'.format(StringType.SYMBOLS.value), symbols):
+            raise InvalidInputSymbolsException(symbols)

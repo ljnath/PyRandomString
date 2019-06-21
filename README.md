@@ -14,7 +14,7 @@ It is parameterized to generate strings of random number and length which is ret
 * **count** : *Integer - Total number of strings to be generated (default is 10)*
 * **max_length** : *Integer - Maximum length of each generated string (default is 10)*
 * **random_length** : *Boolean choice - if the length of each word should be random or not. Incase of random length the maximum value is 'max_length'*
-* **symbols** : *String - Custom symbols which you want to use during random string generation. This is applicable only when the 'string_type' is of type 'SYMBOLS' or '_WITH_SYMBOLS'*
+* **symbols** : *String - Custom symbols which you want to use during random string generation. It should be a subset of the supported symbols and it is applicable only when the 'string_type' is of type 'SYMBOLS' or '_WITH_SYMBOLS'*
 * **string_type** : *PyRandomString.StringType - Type of characters to be used for generating random strings*
     * **NUMERIC** : *0123456789*
     * **SYMBOLS** : *" !#$%&'()\*+,-./:;<=>?@[\]^_`{|}~*
