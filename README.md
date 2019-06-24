@@ -7,6 +7,7 @@ Email : ljnath@ljnath.com<br>
 Website : https://www.ljnath.com
 
 [![Build Status][travis-image]][travis-link]
+[![HitCount][hit-count-image]][hit-count-link]
 [![PyPI Version][pypi-image]][pypi-link]
 ![License][license-image-mit]
 
@@ -64,3 +65,5 @@ print('Following are the generated random strings \n{}'.format('\n'.join(random_
 [pypi-image]: https://img.shields.io/pypi/v/pyrandomstring.svg
 [pypi-link]: https://pypi.org/project/pyrandomstring/
 [license-image-mit]: https://img.shields.io/badge/license-MIT-orange.svg
+[hit-count-image]: http://hits.dwyl.io/ljnath/pyrandomstring.svg
+[hit-count-link]: http://hits.dwyl.io/ljnath/pyrandomstring
