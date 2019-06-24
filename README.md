@@ -6,6 +6,11 @@ Date : June 2019<br>
 Email : ljnath@ljnath.com<br>
 Website : https://www.ljnath.com
 
+[![Build Status][travis-image]][travis-link]
+[![PyPI Version][pypi-image]][pypi-link]
+![License][license-image-mit]
+
+
 ## Introduction
 PyRandomString is a python library to generate N random list of string of M length
 It is parameterized to generate strings of random number and length which is returned as a list. It can be used to generate a large number of numbers, strings etc.
@@ -52,3 +57,10 @@ random_strings = py_random_string.get_strings(string_type=PyRandomString.StringT
 print('Following are the generated random strings \n{}'.format('\n'.join(random_strings)))
 
 ```
+
+
+[travis-image]: https://img.shields.io/travis/ljnath/PyRandomString/master.svg
+[travis-link]: https://travis-ci.org/ljnath/PyRandomString
+[pypi-image]: https://img.shields.io/pypi/v/pyrandomstring.svg
+[pypi-link]: https://pypi.org/project/pyrandomstring/
+[license-image-mit]: https://img.shields.io/badge/license-MIT-orange.svg
