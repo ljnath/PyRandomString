@@ -7,10 +7,12 @@ Email : ljnath@ljnath.com<br>
 Website : https://www.ljnath.com
 
 [![Build Status][travis-image]][travis-link]
+[![Code Coverage][codecov-image]][codecov-link]
 [![Vulnerabilities][snyk-image]][snyk-link]
 [![HitCount][hit-count-image]][hit-count-link]
 [![PyPI Version][pypi-image]][pypi-link]
 ![License][license-image-mit]
+
 
 
 ## Introduction
@@ -70,3 +72,5 @@ print('Following are the generated random strings \n{}'.format('\n'.join(random_
 [hit-count-link]: http://hits.dwyl.io/ljnath/pyrandomstring
 [snyk-image]: https://snyk.io//test/github/ljnath/PyRandomString/badge.svg?targetFile=requirements.txt
 [snyk-link]: https://snyk.io//test/github/ljnath/PyRandomString?targetFile=requirements.txt
+[codecov-image]: https://codecov.io/gh/ljnath/pyrandomstring/branch/master/graph/badge.svg
+[codecov-link]: https://codecov.io/gh/ljnath/PyRandomString
