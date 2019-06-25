@@ -1,5 +1,8 @@
 # PyRandomString Changelog
 
+#### Version 0.0.5
+* Added python 3 requirement in setup.py
+
 #### Version 0.0.4
 * Fixed typo and example in readme file
 

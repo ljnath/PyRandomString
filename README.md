@@ -1,5 +1,5 @@
 # PyRandomString
-### Version : 0.0.4
+### Version : 0.0.5
 
 Author : Lakhya Jyoti Nath (ljnath)<br>
 Date : June 2019<br>
