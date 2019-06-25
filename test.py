@@ -18,6 +18,11 @@ class TestPyRandomString(unittest.TestCase):
         for string in random_strings:
             assert len(string) == 8
 
+    def testStringRandomLength(self):
+        random_strings = self.__random_string_generator.get_strings(count=5, max_length=20, random_length=True, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
+        for string in random_strings:
+            assert re.fullmatch(r'[a-zA-Z0-9]{1,20}', string)
+            
     def testForSingleString(self):
         random_string = self.__random_string_generator.get_string(max_length=6, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
         assert random_string and len(random_string) == 6

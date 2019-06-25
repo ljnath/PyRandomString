@@ -8,7 +8,6 @@ Website : https://www.ljnath.com
 
 [![Build Status][travis-image]][travis-link]
 [![Code Coverage][codecov-image]][codecov-link]
-[![Vulnerabilities][snyk-image]][snyk-link]
 [![HitCount][hit-count-image]][hit-count-link]
 [![PyPI Version][pypi-image]][pypi-link]
 ![License][license-image-mit]
