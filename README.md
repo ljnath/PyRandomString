@@ -9,6 +9,7 @@ Website : https://www.ljnath.com
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyrandomstring)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/pyrandomstring)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyrandomstring)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrandomstring)
 [![Build Status][travis-image]][travis-link]
 [![Code Coverage][codecov-image]][codecov-link]
 [![HitCount][hit-count-image]][hit-count-link]
