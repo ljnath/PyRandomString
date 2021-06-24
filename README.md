@@ -10,6 +10,8 @@ Website : https://www.ljnath.com
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/pyrandomstring)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyrandomstring)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrandomstring)
+![LGTM - Code Quality](https://img.shields.io/lgtm/grade/python/github/ljnath/PyRandomString)
+![LGTM - Alerts](https://img.shields.io/lgtm/alerts/github/ljnath/PyRandomString)
 [![Build Status][travis-image]][travis-link]
 [![Code Coverage][codecov-image]][codecov-link]
 [![HitCount][hit-count-image]][hit-count-link]
