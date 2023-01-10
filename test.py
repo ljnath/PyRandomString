@@ -22,7 +22,7 @@ class TestPyRandomString(unittest.TestCase):
         random_strings = self.__random_string_generator.get_strings(count=5, max_length=20, random_length=True, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
         for string in random_strings:
             assert re.fullmatch(r'[a-zA-Z0-9]{1,20}', string)
-            
+       
     def testForSingleString(self):
         random_string = self.__random_string_generator.get_string(max_length=6, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE)
         assert random_string and len(random_string) == 6
@@ -91,5 +91,10 @@ class TestPyRandomString(unittest.TestCase):
         with self.assertRaises(PyRandomString.InvalidInputSymbolsException):
             self.__random_string_generator.get_strings(symbols='bad')
 
+    def testForAlphaNumericInMixedCaseWithForceOccurance(self):
+        random_strings = self.__random_string_generator.get_strings(count=100, max_length=30, random_length=False, string_type=PyRandomString.StringType.ALPHA_NUMERIC_ALL_CASE, must_include_all_type=False)
+        for string in random_strings:
+            assert re.fullmatch(r'[a-zA-Z0-9]{30}', string)
+        
 if __name__ == '__main__':
     unittest.main()

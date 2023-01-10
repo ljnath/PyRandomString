@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+with open("README.md", encoding="UTF-8") as file_handler:
+    long_description = file_handler.read()
 
 setuptools.setup(
     name = "pyrandomstring",
-    version = "0.0.5",
+    version = "0.0.6",
     author = "Lakhya Jyoti Nath (ljnath)",
     author_email = "ljnath@ljnath.com",
     description = "PyRandomString is a python library to generate N random list of string of M length. Ofcourse you can configure N and M",

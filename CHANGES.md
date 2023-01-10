@@ -1,6 +1,10 @@
 # PyRandomString Changelog
 
 #### Version 0.0.5
+* Added support to generate random strings by forcefuly including all input string type. 
+  For example ALPHANUMERIC can now be forcefully configured to generate random strings including both alphabet and number
+
+#### Version 0.0.5
 * Added python 3 requirement in setup.py
 
 #### Version 0.0.4
