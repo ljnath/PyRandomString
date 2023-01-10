@@ -69,7 +69,7 @@ class UnsupportedTypeException(Exception):
     """
 
     def __init__(self, parameter_name: str, message: str = None):
-        print(f'Unsupported type exception for {parameter_name}. {message if message else ""}')
+        print('Unsupported type exception for {}. {}'.format(parameter_name, message if message else ""))
 
 
 class InvalidInputSymbolsException(Exception):
@@ -78,7 +78,7 @@ class InvalidInputSymbolsException(Exception):
     """
 
     def __init__(self, input_symbols: str):
-        print(f'Input symbols "{input_symbols}" are invalid. Input symbols should be a subset of available symbols {StringType.SYMBOLS.value}')
+        print('Input symbols "{}" are invalid. Input symbols should be a subset of available symbols {}'.format(input_symbols, StringType.SYMBOLS.value))
 
 
 class RandomString():

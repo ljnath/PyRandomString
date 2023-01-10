@@ -12,9 +12,8 @@ Website : https://www.ljnath.com
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrandomstring)
 ![LGTM - Code Quality](https://img.shields.io/lgtm/grade/python/github/ljnath/PyRandomString)
 ![LGTM - Alerts](https://img.shields.io/lgtm/alerts/github/ljnath/PyRandomString)
-[![Build Status][travis-image]][travis-link]
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ljnath/PyRandomString/python-package.yml)
 [![Code Coverage][codecov-image]][codecov-link]
-[![HitCount][hit-count-image]][hit-count-link]
 [![PyPI Version][pypi-image]][pypi-link]
 ![License][license-image-mit]
 
@@ -72,13 +71,9 @@ print('Following are the generated random strings \n{}'.format('\n'.join(random_
 ```
 
 
-[travis-image]: https://img.shields.io/travis/ljnath/PyRandomString/master.svg
-[travis-link]: https://travis-ci.org/ljnath/PyRandomString
 [pypi-image]: https://img.shields.io/pypi/v/pyrandomstring.svg
 [pypi-link]: https://pypi.org/project/pyrandomstring/
 [license-image-mit]: https://img.shields.io/badge/license-MIT-orange.svg
-[hit-count-image]: http://hits.dwyl.io/ljnath/pyrandomstring.svg
-[hit-count-link]: http://hits.dwyl.io/ljnath/pyrandomstring
 [snyk-image]: https://snyk.io//test/github/ljnath/PyRandomString/badge.svg?targetFile=requirements.txt
 [snyk-link]: https://snyk.io//test/github/ljnath/PyRandomString?targetFile=requirements.txt
 [codecov-image]: https://codecov.io/gh/ljnath/pyrandomstring/branch/master/graph/badge.svg
