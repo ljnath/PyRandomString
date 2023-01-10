@@ -131,7 +131,7 @@ class RandomString():
             list_of_strings = self.__get_strings(count, max_length, random_length, input_characters)
         return list_of_strings
 
-    def __get_strings(self, count: int, max_length: int, random_length: bool, input_characters: list|str) -> list:
+    def __get_strings(self, count: int, max_length: int, random_length: bool, input_characters) -> list:
         """
         Generate a list of random strings from a single string of characters.
 
