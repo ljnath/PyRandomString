@@ -124,8 +124,9 @@ class RandomString():
         if count > 0 and max_length > 0:
             list_of_input_strings = self.__get_input_strings_from_string_type(string_type)
 
-            # checking if user have specified any custom symbols, then the default symbols will be overridden
-            list_of_input_strings = ['{}{}'.format(_temp_string, symbols) if '@' in _temp_string else _temp_string for _temp_string in list_of_input_strings]
+            if symbols:
+                # checking if user have specified any custom symbols, then the default symbols will be overridden
+                list_of_input_strings = [symbols if '@' in entry else entry for entry in list_of_input_strings]
 
             input_characters = list_of_input_strings if must_include_all_type else ''.join(list_of_input_strings)
             list_of_strings = self.__get_strings(count, max_length, random_length, input_characters)
@@ -184,7 +185,7 @@ class RandomString():
         if symbols and not isinstance(symbols, str):
             raise UnsupportedTypeException('symbols', f'symbols should be either None or of string type instead of current {type(symbols)} type')
 
-        if symbols and not re.match('[{}]'.format({StringType.SYMBOLS.value}), symbols):
+        if symbols and not re.match('[{}]'.format(StringType.SYMBOLS.value), symbols):
             raise InvalidInputSymbolsException(symbols)
 
     def __get_input_strings_from_string_type(self, string_type: StringType) -> list:
