@@ -171,19 +171,19 @@ class RandomString():
         :param symbols: Custom symbols to use for generating the strings (applicable only when string_type is set to SYMBOLS or WITH_SYMBOLS).
         """
         if not isinstance(count, int):
-            raise UnsupportedTypeException('count', f'count should be of integer type instead of current {type(count)} type')
+            raise UnsupportedTypeException('count', 'count should be of integer type instead of current {} type'.format(type(count)))
 
         if not isinstance(max_length, int):
-            raise UnsupportedTypeException('max_length', f'max_length should be of integer type instead of current {type(max_length)} type')
+            raise UnsupportedTypeException('max_length', 'max_length should be of integer type instead of current {} type'.format(type(max_length)))
 
         if not isinstance(random_length, bool):
-            raise UnsupportedTypeException('random_length', f'random_length should be of boolean type instead of current {type(random_length)} type')
+            raise UnsupportedTypeException('random_length', 'random_length should be of boolean type instead of current {} type'.format(type(random_length)))
 
         if not isinstance(string_type, StringType):
-            raise UnsupportedTypeException('string_type', f'string_type should be of StringType type instead of current {type(string_type)} type')
+            raise UnsupportedTypeException('string_type', 'string_type should be of StringType type instead of current {} type'.format(type(string_type)))
 
         if symbols and not isinstance(symbols, str):
-            raise UnsupportedTypeException('symbols', f'symbols should be either None or of string type instead of current {type(symbols)} type')
+            raise UnsupportedTypeException('symbols', 'symbols should be either None or of string type instead of current {} type'.format(type(symbols)))
 
         if symbols and not re.match('[{}]'.format(StringType.SYMBOLS.value), symbols):
             raise InvalidInputSymbolsException(symbols)
