@@ -9,8 +9,8 @@ Website : https://www.ljnath.com
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyrandomstring)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/pyrandomstring)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyrandomstring)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrandomstring)zz
-[![CodeFactor Grade](https://www.codefactor.io/repository/github/ljnath/pyrandomstring/)](https://img.shields.io/codefactor/grade/github/ljnath/PyRandomString)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyrandomstring)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ljnath/PyRandomString)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ljnath/PyRandomString/python-package.yml)
 [![Code Coverage][codecov-image]][codecov-link]
 [![PyPI Version][pypi-image]][pypi-link]
